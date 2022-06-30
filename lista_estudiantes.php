@@ -40,11 +40,12 @@ $consulta=$Estudiantes->listar_estudiantes();
 	</style>
 </head>
 <body>
-	<h1 style="background:#7AC7D1;text-align:center;color:white;">lista estudiantes VN</h1>
+	<h1 style="background:#7AC7D1;text-align:center;color:white;">Lista estudiantes </h1>
+	<a href="formulario_estudiante.php">Nuevo Estudiante</a>
 	<table align="center">
 		<tr>
 			<th style="background:#CD7272;color:white;">#</th>
-			<th style="background:#CD7272;color:white;font:small-caps 100%/200% serif;">Nombres</th>
+			<th style="background:#CD7272;color:white;">Nombres</th>
 			<th style="background:#CD7272;color:white;">Apellidos</th>
 			<th style="background:#CD7272;color:white;">cedula</th>
 			<th style="background:#CD7272;color:white;">edad</th>
@@ -66,10 +67,11 @@ $consulta=$Estudiantes->listar_estudiantes();
 			      <td>{$c["est_genero"]}</td>
 			      <td>
 
-			      <a href=>
+			      <a href='formulario_estudiante.php?est_id={$c["est_id"]}'>
 			      <img src='edit.png'/>
+                  </a>
 
-			      <a href=>
+			      <a href='acciones_estudiantes.php?est_id={$c["est_id"]}' onclick='return validar()'>
 			      <img src='delete.png'/>
 			      </a>
 
@@ -84,3 +86,12 @@ $consulta=$Estudiantes->listar_estudiantes();
 	</table>
 </body>
 </html>
+<script>
+	function validar(){
+		if(confirm("Desea Eliminar")){
+			return true;
+		}else{
+			return false;
+		}
+	}
+</script>
